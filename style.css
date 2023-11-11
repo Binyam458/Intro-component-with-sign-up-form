@@ -2,19 +2,19 @@ html body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: hsl(0, 100%, 74%) 
+    background-color: hsl(0, 100%, 74%); 
 }
 
 main {
     background-image: url(bg-intro-desktop.png);
-    background-size: cover; 
+    background-repeat: repeat;
 }
 
 .container {
     display: flex;
     flex-direction: row;
-    display: flex;
     justify-content: center;
+    align-items: center;
     margin: 10% 5% auto 5%;
 }
 .main-section-text {
@@ -34,22 +34,26 @@ main {
     font-size: 0.8rem;
 }
 
-.heade-text {
+.head-text {
     font-family: 'Poppins', sans-serif;
     padding: 5px;
     font-size: 0.6rem;
     color: white;   
     text-align: center;
+
 }
 
-
 .form-ad {
-    display: block;
-    background-color: hsl(249, 92%, 50%);
-    border-radius: 5px;
-    cursor: pointer;
-
-} 
+        display: block;
+        background-color: hsl(249, 92%, 50%);
+        border-radius: 2px;
+        cursor: pointer;
+        min-width: 100%;
+    } 
+.form-ad:hover {
+    min-width: 90%;
+    box-shadow: 3px 3px gray;
+}
 
 .form-section {
     display: block;
@@ -59,39 +63,69 @@ main {
     border: none;
     background-color: white;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    min-width: 200px;
+    justify-content: center;
+    align-items: center;
 }
 .form {
     display: block;
     align-items: center;
 }
-.form input {
-    display: block;
-    margin: 5px auto;
-    padding: 10px;
-    min-width: 80%;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid lightgray;
+
+.form-control {
+    margin-bottom: 5px;
+    padding-bottom: 15px;
+    position: relative;
 }
+
+.form-control input {
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    display: block;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    min-width: 100%;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.form-control i {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    visibility: hidden;
+}
+
+.form-control small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    font-size: 0.6rem;
+    font-family: 'Poppins', sans-serif;
+}
+
 .form input:hover {
-    min-width: 90%;
     box-shadow: 3px 3px gray;
 }
 
-.button {
+.form button {
     display: block;
     padding: 10px;
     background-color: hsl(154, 59%, 51%);
-    border: none;
-    border-radius: 5px;
+    text-transform: uppercase;
     cursor: pointer;
+    width: 100%;
+    border: none;
     color: white;
     font-size: 0.5rem;
-    text-transform: uppercase;
-    min-width: 80%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     margin: 5px auto;
 }
-.button:hover {
+
+.form button:hover {
     min-width: 85%;
     box-shadow: 3px 3px gray;
 }
@@ -99,6 +133,10 @@ main {
 .form-footer-legend {
     font-family: 'Poppins', sans-serif;
     font-size: 0.5rem;
+}
+.form-footer-legend a {
+    color: red;
+    text-decoration: none;
 }
 
 .attribution { 
@@ -115,4 +153,94 @@ main {
 }
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+
+.form-control.error input {
+    border-color: red;
+}
+.form-control.success input {
+    border-color: hsl(154, 59%, 51%);
+}
+
+.form-control.success i.fa-check-circle {
+    visibility: visible;
+}
+.form-control.error i.bi-exclamation-circle {
+    visibility: visible;
+}
+.form-control.error small {
+    visibility: visible;
+    color: red;
+}
+
+
+.bi-exclamation-circle {
+    color:red;
+}
+
+.fa-check-circle {
+    color:green;
+}
+
+/* mobile size */
+
+@media screen and (max-width: 375px) {
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: hsl(0, 100%, 74%); 
+    }
+
+    main {
+        background-image: url(bg-intro-mobile.png);
+    }
+
+    .container {
+        flex-direction: column;
+        margin: 5%;
+
+    }
+
+    .main-section-text {
+        min-width: 100px;
+        max-width: 375px;
+
+    }
+
+    .main-h1-text {
+        font-size: 1.5rem;
+
+    }
+
+    .main-body-text {
+        font-size: 0.7rem;
+
+    }
+
+    .heade-text {
+        font-size: 0.5rem;
+    }
+
+    .form-ad:hover {
+        min-width: 100%;
+    }
+
+    .form-fieldset {
+        min-width: 100%;
+        margin-left: -10px;
+    }
+
+    .form-control input {
+        min-width: 100%;
+    }
+
+    .form button:hover {
+        min-width: 100%;
+    }
+
+    .form-footer-legend {
+        font-size: 0.4rem;
+    }
+
 }
